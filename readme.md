@@ -2,6 +2,8 @@
 
 Une présentation de NoSQL est disponible via ce [lien](#).
 
+Lors de ce TP, nous allons découvrir MongoDB, une base de données NoSQL orientée documents. Nous allons également utiliser Mongoose, un module Node.js permettant de manipuler MongoDB. Nous allons créer une API de gestion d'annonces immobilières, avec des fonctionnalités de CRUD (Create, Read, Update, Delete).
+
 ## 1. Création d'un compte sur MongoDB Atlas
 
 MongoDB Atlas offre une option de base de données NoSQL hébergée dans le cloud, avec un niveau gratuit pour démarrer. Ces bases de données sont faciles à mettre à l'échelle et bien adaptées aux applications modernes.
