@@ -10,6 +10,9 @@ Créer un compte en vous rendant sur [MongoDB Atlas](https://www.mongodb.com/clo
 
 Une fois votre compte et votre cluster créés, accédez au bouton "Connect" pour découvrir les méthodes de connexion. Parmi elles, les "drivers" sont des outils essentiels pour interagir avec MongoDB depuis différents langages de programmation. Pour ce TP, nous nous concentrerons sur le driver pour Node.js. Suivez attentivement les instructions fournies par MongoDB.
 
+![Texte alternatif](/image.png).
+![Texte alternatif](/image-1.png).
+
 ## 2. Installation de Mongoose
 
 Mongoose est un module pour Node.js facilitant l'interaction avec MongoDB. Il sert à créer des schémas de données, les manipuler et les persister en base de données.
