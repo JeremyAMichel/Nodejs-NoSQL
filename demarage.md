@@ -190,9 +190,7 @@ Lorsque vous définissez l'objet data pour la création d'annonces, soyez attent
 
 # TEST !
 
-### TEST !
-
-Pour valider cette étape, vous devez avoir un test qui passe avec succès. Pour cela, vous pouvez utiliser le code suivant :
+Pour valider votre crud, vous devez avoir un test qui passe avec succès. Pour cela, vous pouvez utiliser le code suivant :
 
 ```js
 const request = require("supertest");
@@ -240,6 +238,7 @@ describe("GET /annonces", () => {
 Vous pouvez utiliser ce test pour définir les champs de votre schéma.
 
 Copiez le tel quel dans votre fichier `tests/annonces.test.js` et exécutez `npm test` pour valider cette étape.
+
 **Attention** : vous devez dabord avoir créé le fichier `app.js` et configurez votre serveur express pour que les tests passent.
 
 de plus, le serveur doit etre arrete pour que les tests se lancent correctement
