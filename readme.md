@@ -1,6 +1,6 @@
 # Introduction à NoSQL et MongoDB
 
-Une présentation de NoSQL est disponible via ce [lien](#).
+Une présentation de NoSQL est disponible via ce [lien](https://docs.google.com/presentation/d/1ANhv39Pt6jXdfQQrlpoJIlHUkWMaPUbH2ko_R26Cxmw/edit?usp=sharing).
 
 Lors de ce TP, nous allons découvrir MongoDB, une base de données NoSQL orientée documents. Nous allons également utiliser Mongoose, un module Node.js permettant de manipuler MongoDB. Nous allons créer une API de gestion d'annonces immobilières, avec des fonctionnalités de CRUD (Create, Read, Update, Delete).
 
