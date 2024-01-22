@@ -48,6 +48,7 @@ projet-annonces-immobilieres/
 ```
 
 Avant de commencer à coder, préparez un dossier `tests/` avec Jest. Vos tests seront exécutés avec `npm test`, et vous servirez d'un fichier fourni par vos formateurs pour valider chaque étape de votre TP.
+https://www.npmjs.com/package/jest
 
 ## 4. Configuration de database.js
 
