@@ -94,63 +94,6 @@ const Annonce = mongoose.model("Annonce", annonceSchema);
 module.exports = Annonce;
 ```
 
-### TEST !
-
-Pour valider cette étape, vous devez avoir un test qui passe avec succès. Pour cela, vous pouvez utiliser le code suivant :
-
-```js
-const request = require("supertest");
-let app = require("../app");
-
-beforeAll(() => {
-  app = require("../app");
-});
-
-describe("POST /annonces", () => {
-  it("should create a new annonce", async () => {
-    const data = {
-      titre: "Superbe appartement en centre-ville",
-      description: "Un appartement charmant avec vue sur la rivière",
-      prix: 250000,
-      surface: 80,
-      localisation: {
-        ville: "Lyon",
-        codePostal: "69000",
-      },
-      caractéristiques: {
-        chambre: 2,
-        salleDeBain: 1,
-        balcon: true,
-        jardin: false,
-        parking: true,
-      },
-    };
-
-    const res = await request(app).post("/annonces").send(data);
-
-    expect(res.statusCode).toEqual(201);
-    expect(res.body).toHaveProperty("_id");
-  });
-});
-describe("GET /annonces", () => {
-  it("should retrieve all annonces", async () => {
-    const res = await request(app).get("/annonces");
-
-    expect(res.statusCode).toEqual(200);
-  });
-});
-```
-
-Vous pouvez utiliser ce test pour définir les champs de votre schéma.
-
-Copiez le tel quel dans votre fichier `tests/annonces.test.js` et exécutez `npm test` pour valider cette étape.
-**Attention** : vous devez dabord avoir créé le fichier `app.js` et configurez votre serveur express pour que les tests passent.
-
-de plus, le serveur doit etre arrete pour que les tests se lancent correctement
-
-Ceci est ce qu'on appelle de la TDD (Test Driven Development), c'est à dire que l'on écrit les tests avant d'écrire le code. Cela permet de s'assurer que le code écrit est fonctionnel et qu'il répond bien aux besoins.
-à chaque fois que vous ajoutez une fonctionnalité, vous devez refaire un test pour vous assurer que tout fonctionne correctement.
-
 ## 6.Configuration d'Express et du moteur de template Mustache
 
 Après avoir installé Express et Mustache, configurez votre application pour utiliser ces outils. Le but est de créer une application web capable de servir des pages et de gérer les données de manière dynamique grâce à des templates et des API REST.
@@ -247,9 +190,62 @@ Lorsque vous définissez l'objet data pour la création d'annonces, soyez attent
 
 # TEST !
 
-N'oubliez pas de passer le test avec `npm test` pour valider cette étape !
+### TEST !
 
-Le test fourni enregistre une nouvelle annonce et récupere toutes les annonces. Si vous avez bien suivi les instructions et coder vos routes correctement, les tests devraient passer avec succès.
+Pour valider cette étape, vous devez avoir un test qui passe avec succès. Pour cela, vous pouvez utiliser le code suivant :
+
+```js
+const request = require("supertest");
+let app = require("../app");
+
+beforeAll(() => {
+  app = require("../app");
+});
+
+describe("POST /annonces", () => {
+  it("should create a new annonce", async () => {
+    const data = {
+      titre: "Superbe appartement en centre-ville",
+      description: "Un appartement charmant avec vue sur la rivière",
+      prix: 250000,
+      surface: 80,
+      localisation: {
+        ville: "Lyon",
+        codePostal: "69000",
+      },
+      caractéristiques: {
+        chambre: 2,
+        salleDeBain: 1,
+        balcon: true,
+        jardin: false,
+        parking: true,
+      },
+    };
+
+    const res = await request(app).post("/annonces").send(data);
+
+    expect(res.statusCode).toEqual(201);
+    expect(res.body).toHaveProperty("_id");
+  });
+});
+describe("GET /annonces", () => {
+  it("should retrieve all annonces", async () => {
+    const res = await request(app).get("/annonces");
+
+    expect(res.statusCode).toEqual(200);
+  });
+});
+```
+
+Vous pouvez utiliser ce test pour définir les champs de votre schéma.
+
+Copiez le tel quel dans votre fichier `tests/annonces.test.js` et exécutez `npm test` pour valider cette étape.
+**Attention** : vous devez dabord avoir créé le fichier `app.js` et configurez votre serveur express pour que les tests passent.
+
+de plus, le serveur doit etre arrete pour que les tests se lancent correctement
+
+Ceci est ce qu'on appelle de la TDD (Test Driven Development), c'est à dire que l'on écrit les tests avant d'écrire le code. Cela permet de s'assurer que le code écrit est fonctionnel et qu'il répond bien aux besoins.
+à chaque fois que vous ajoutez une fonctionnalité, vous devez refaire un test pour vous assurer que tout fonctionne correctement.
 
 ## 8. Création des vues pour les annonces immobilières
 
