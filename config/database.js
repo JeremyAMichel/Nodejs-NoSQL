@@ -1,4 +1,6 @@
+require("dotenv").config({ path: ".env.local" });
 const mongoose = require("mongoose");
+
 
 const connectDatabase = async () => {
   // TODO: Connexion à la base de données MongoDB
@@ -6,10 +8,7 @@ const connectDatabase = async () => {
   // et referez-vous à la documentation de Mongoose
   // Utilisez un try/catch pour gérer les erreurs et n'oublier pas d'ajouter un log pour le serveur
     try {
-        await mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        });
+        await mongoose.connect(process.env.MONGO_URI);
         console.log("MongoDB connected");
     } catch (error) {
         console.error(error);
