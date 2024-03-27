@@ -25,14 +25,9 @@ app.use(express.urlencoded({ extended: true })); // Pour le support des formulai
 
 // Routes à ajouter ici
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
-
-// app.get("/", (req, res) => {
-//   res.render("index");
-// });
-
 const annoncesRouter = require("./routes/annonces");
 
 app.use("/", annoncesRouter);
+
+
+module.exports = app;

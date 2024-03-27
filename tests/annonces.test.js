@@ -1,11 +1,11 @@
 const request = require("supertest");
-let app = require("../app");
+let app = require("../index");
 
 beforeAll(() => {
-  app = require("../app");
+  app = require("../index");
 });
 
-describe("POST /annonces", () => {
+describe("POST /", () => {
   it("should create a new annonce", async () => {
     const data = {
       titre: "Superbe appartement en centre-ville",
@@ -25,15 +25,15 @@ describe("POST /annonces", () => {
       },
     };
 
-    const res = await request(app).post("/annonces").send(data);
+    const res = await request(app).post("/").send(data);
 
     expect(res.statusCode).toEqual(201);
     expect(res.body).toHaveProperty("_id");
   });
 });
-describe("GET /annonces", () => {
+describe("GET /", () => {
   it("should retrieve all annonces", async () => {
-    const res = await request(app).get("/annonces");
+    const res = await request(app).get("/");
 
     expect(res.statusCode).toEqual(200);
   });

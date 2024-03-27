@@ -4,7 +4,7 @@
   "description": "Ce TP va vous permettre de créer une application de gestion d'annonces immobilières avec une API REST et une base de données MongoDB.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --detectOpenHandles",
     "devStart": "nodemon --ext js,pug,mustache,json index.js"
   },
   "keywords": [
