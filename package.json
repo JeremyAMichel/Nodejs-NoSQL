@@ -2,10 +2,10 @@
   "name": "appli-immo",
   "version": "1.0.0",
   "description": "Ce TP va vous permettre de créer une application de gestion d'annonces immobilières avec une API REST et une base de données MongoDB.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "devStart": "nodemon --ext js,pug,mustache,json index.js"
+    "start": "nodemon server.js"
   },
   "keywords": [
     "app",
