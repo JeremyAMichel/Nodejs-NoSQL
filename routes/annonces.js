@@ -11,11 +11,11 @@ router
   .get((req, res) => {
     Annonce.find()
       .then((annonces) => {
-        res.status(200).json(annonces); // 200 signifie "OK"
+        return res.status(200).json(annonces); // 200 signifie "OK"
       })
       .catch((error) => {
         // console.error("Failed to retrieve annonces:", error);
-        res.status(500).json({
+        return res.status(500).json({
           message: "Failed to retrieve annonces",
           error: error.toString(),
         }); // 500 signifie "Internal Server Error"
@@ -26,10 +26,12 @@ router
   .post((req, res) => {
     Annonce.create(req.body)
       .then((annonce) => {
-        res.status(201).json(annonce); // 201 signifie "Created"
+        return res.status(201).json(annonce); // 201 signifie "Created"
       })
       .catch((error) => {
-        res.status(500).json({ message: "Failed to create annonce", error }); // 500 signifie "Internal Server Error"
+        return res
+          .status(500)
+          .json({ message: "Failed to create annonce", error }); // 500 signifie "Internal Server Error"
       });
   });
 
@@ -46,11 +48,11 @@ router
         if (!annonce) {
           return res.status(404).json({ message: "Annonce not found" }); // 404 signifie "Not Found"
         } else {
-          res.status(200).json(annonce); // 200 signifie "OK"
+          return res.status(200).json(annonce); // 200 signifie "OK"
         }
       });
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         message: "Failed to retrieve annonce",
         error: error.toString(),
       }); // 500
@@ -69,12 +71,12 @@ router
           if (!annonce) {
             return res.status(404).json({ message: "Annonce not found" }); // 404 signifie "Not Found"
           } else {
-            res.status(200).json(annonce); // 200 signifie "OK"
+            return res.status(200).json(annonce); // 200 signifie "OK"
           }
         }
       );
     } catch (error) {
-      res
+      return res
         .status(500)
         .json({ message: "Failed to update annonce", error: error.toString() }); // 500
     }
@@ -91,11 +93,13 @@ router
         if (!annonce) {
           return res.status(404).json({ message: "Annonce not found" }); // 404 signifie "Not Found"
         } else {
-          res.status(204).json({ message: "Successfully deleted annonce" }); // 204 signifie "No Content"
+          return res
+            .status(204)
+            .json({ message: "Successfully deleted annonce" }); // 204 signifie "No Content"
         }
       });
     } catch (error) {
-      res
+      return res
         .status(500)
         .json({ message: "Failed to delete annonce", error: error.toString() }); // 500
     }
