@@ -1,17 +1,7 @@
 const express = require("express");
-const mustacheExpress = require("mustache-express");
 const app = express();
 
 // require("dotenv").config({ path: ".env.local" });
-
-/**
- * Configuration de mustache
- * comme moteur de template
- * pour l'extension .mustache
- */
-app.engine("mustache", mustacheExpress());
-app.set("view engine", "mustache");
-app.set("views", __dirname + "/views");
 
 /**
  * Configuration de express
