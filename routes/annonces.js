@@ -66,15 +66,25 @@ router
       if (!Mongoose.Types.ObjectId.isValid(req.params.id)) {
         return res.status(400).json({ message: "Invalid ID" }); // 400 signifie "Bad Request"
       }
-      Annonce.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
-        (annonce) => {
+      Annonce.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+      })
+        .then((annonce) => {
           if (!annonce) {
             return res.status(404).json({ message: "Annonce not found" }); // 404 signifie "Not Found"
           } else {
             return res.status(200).json(annonce); // 200 signifie "OK"
           }
-        }
-      );
+        })
+        .catch((error) => {
+          return res
+            .status(500)
+            .json({
+              message: "Failed to update annonce",
+              error: error.toString(),
+            }); // 500
+        });
     } catch (error) {
       return res
         .status(500)
@@ -95,7 +105,7 @@ router
         } else {
           return res
             .status(204)
-            .json({ message: "Successfully deleted annonce" }); // 204 signifie "No Content"
+            .json({ message: "Annonce successfully deleted" }); // 204 signifie "No Content"
         }
       });
     } catch (error) {

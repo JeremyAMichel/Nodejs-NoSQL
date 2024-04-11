@@ -1,54 +1,54 @@
 const mongoose = require("mongoose");
 
 const annonceSchema = new mongoose.Schema({
-    titre: {
-        type: String,
-        required: true
+  titre: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: false,
+  },
+  prix: {
+    type: Number,
+    required: true,
+  },
+  surface: {
+    type: Number,
+    required: true,
+  },
+  localisation: {
+    ville: {
+      type: String,
+      required: true,
     },
-    description: {
-        type: String,
-        required: false
+    codePostal: {
+      type: String,
+      required: true,
     },
-    prix: {
-        type: Number,
-        required: true
+  },
+  caractéristiques: {
+    chambre: {
+      type: Number,
+      required: true,
     },
-    surface: {
-        type: Number,
-        required: true
+    salleDeBain: {
+      type: Number,
+      required: true,
     },
-    localisation: {
-        ville: {
-            type: String,
-            required: true
-        },
-        codePostal: {
-            type: String,
-            required: true
-        }
+    balcon: {
+      type: Boolean,
+      required: true,
     },
-    caractéristiques: {
-        chambre: {
-            type: Number,
-            required: true
-        },
-        salleDeBain: {
-            type: Number,
-            required: true
-        },
-        balcon: {
-            type: Boolean,
-            required: true
-        },
-        jardin: {
-            type: Boolean,
-            required: true
-        },
-        parking: {
-            type: Boolean,
-            required: true
-        }
-    }
+    jardin: {
+      type: Boolean,
+      required: true,
+    },
+    parking: {
+      type: Boolean,
+      required: true,
+    },
+  },
 });
 
 // l'etape de transformation du schema en modele sert a creer des instances de donnees

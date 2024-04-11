@@ -1,15 +1,12 @@
 const express = require("express");
 const app = express();
 
-// require("dotenv").config({ path: ".env.local" });
-
 /**
  * Configuration de express
  * pour récupérer les données d'un formulaire
  * et pour servir les fichiers statiques
  * (css, js, images, etc.)
  */
-app.use(express.static("public"));
 app.use(express.json()); // Pour le support des JSON dans le corps (body) des requêtes
 app.use(express.urlencoded({ extended: true })); // Pour le support des formulaires
 
@@ -18,6 +15,5 @@ app.use(express.urlencoded({ extended: true })); // Pour le support des formulai
 const annoncesRouter = require("./routes/annonces");
 
 app.use("/", annoncesRouter);
-
 
 module.exports = app;
